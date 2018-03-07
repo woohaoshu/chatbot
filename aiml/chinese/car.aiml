@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0">
+
+    <category>
+        <pattern>ASK USER A QUESTION</pattern>
+        <template>
+            请问我能帮到您什么~
+        </template>
+    </category>
+
+    <category>
+        <pattern>*油压*</pattern>
+        <template>
+            当表的指针显示油压不正常时，说明发动机部件有故障。如果油表指针显示压力偏低或是仪表指针显示波动大，可能是由于机油泵磨损大、滤清器被脏物阻塞、吸油滤网置露出油面、机油液面低、油路中混入空气以及压力表有故障等原因造成的。另外，润滑油粘度偏低，油路密封和润滑性差、润滑油过冷粘度太大、润滑油油泥沉积太多等也会引起机油压力指示表显示异常。
+        </template>
+    </category>
+
+    <category>
+        <pattern>*车长*</pattern>
+        <template>
+            汽车长度方向两极端点间的距离。
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*车宽*</pattern>
+        <template>
+            汽车宽度方向两极端点间的距离。
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*车高*</pattern>
+        <template>
+            汽车最高点至地面间的距离。
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*轴距*</pattern>
+        <template>
+            汽车前轴中心至后轴中心的距离。
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*轮距*</pattern>
+        <template>
+            同一车轿左右轮胎胎面中心线间的距离。
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*前悬*</pattern>
+        <template>
+            汽车最前端至前轴中心的距离。
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*后悬*</pattern>
+        <template>
+            汽车最后端至后轴中心的距离。
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*接近角*</pattern>
+        <template>
+            汽车前端突出点向前轮引的切线与地面的夹角。
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*离去角*</pattern>
+        <template>
+            汽车后端突出点向后轮引的切线与地面的夹角。
+        </template>
+    </category>
+
+</aiml>

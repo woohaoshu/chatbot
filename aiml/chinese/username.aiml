@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0">
+
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <srai>INACTIVITY QUESTIONS</srai>
+        </template>
+    </category>
+
+
+    <category>
+        <pattern>INACTIVITY QUESTIONS</pattern>
+        <template>
+            <condition>
+                <li name="name" value="">请等一下，还不知如何称呼您？</li>
+                <li>
+                    <srai>ASK USER A QUESTION</srai>
+                </li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我叫 * </pattern>
+        <template>
+            <think>
+                <set name="name">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY NAME</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我是 * </pattern>
+        <template>
+            <think>
+                <set name="name">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY NAME</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>请等一下，还不知如何称呼您？</that>
+        <template>
+            <think>
+                <set name="name">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY NAME</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>REPLY NAME</pattern>
+        <template>
+            <random>
+                <li>嗯嗯,你好呀
+                    <get name="name" />.</li>
+                <li>
+                    <get name="name" />你好~</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我叫什么</pattern>
+        <template>
+            <random>
+                <li>你叫
+                    <get name="name" />.</li>
+                <li>
+                    <get name="name" />呀，你连自己名字都不知道吗~</li>
+            </random>
+        </template>
+    </category>
+
+</aiml>

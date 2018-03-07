@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0">
+
+<category>
+        <pattern>*谢谢*</pattern>
+        <template>
+            <srai>ASK AGE</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ASK AGE</pattern>
+        <template>
+            <condition>
+                <li name="age" value="">请等一下，还不知您贵庚？</li>
+                <li>
+                    <srai>ASK CAR</srai>
+                </li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我今年 * 岁</pattern>
+        <that>请等一下，还不知您贵庚？</that>
+        <template>
+            <think>
+                <set name="age">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY AGE</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>REPLY AGE</pattern>
+        <template>
+            <random>
+                <li>哇，
+                    <get name="age" />岁，还很年轻呢.</li>
+                <li>
+                    <get name="age" />哦，正值大好时光！</li>
+            </random>
+            <srai>ASK CAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ASK CAR</pattern>
+        <template>
+            <condition>
+                <li name="car" value="">请等一下，还不知您的车型？</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我开 * </pattern>
+        <that>请等一下，还不知您的车型？</that>
+        <template>
+            <think>
+                <set name="car">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY CAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>REPLY CAR</pattern>
+        <template>
+            <random>
+                <li>好的，
+                    <get name="car" />，我记下啦.</li>
+                <li>
+                    <get name="car" />，不错呦~</li>
+            </random>
+        </template>
+    </category>
+
+
+</aiml>

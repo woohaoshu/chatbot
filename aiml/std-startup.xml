@@ -6,7 +6,7 @@
 <template>
 
 <!-- Load standard AIML set -->
-<learn>aiml/standard/std-65percent.aiml</learn>
+<!-- <learn>aiml/standard/std-65percent.aiml</learn>
 <learn>aiml/standard/std-atomic.aiml</learn>
 <learn>aiml/standard/std-botmaster.aiml</learn>
 <learn>aiml/standard/std-brain.aiml</learn>
@@ -39,11 +39,18 @@
 <learn>aiml/standard/std-suffixes.aiml</learn>
 <learn>aiml/standard/std-that.aiml</learn>
 <learn>aiml/standard/std-turing.aiml</learn>
-<learn>aiml/standard/std-yesno.aiml</learn>
+<learn>aiml/standard/std-yesno.aiml</learn> -->
 
 
 <!-- Load additional AIML set -->
-<learn>aiml/additional/computer.aiml</learn>
+<!-- <learn>aiml/additional/computer.aiml</learn> -->
+
+<!-- Load chinese AIML set -->
+<!--<learn>aiml/chinese/cn-test.aiml</learn>-->
+<learn>aiml/chinese/car.aiml</learn>
+<learn>aiml/chinese/userinfo.aiml</learn>
+<learn>aiml/chinese/username.aiml</learn>
+<!--<learn>aiml/chinese/cn.aiml</learn>-->
 
 </template>
 </category>
