@@ -72,7 +72,20 @@ def ask():
 
 @app.route("/model", methods=['GET'])
 def model():
-    data = jsonify({"name":kernel.getPredicate(name="name",sessionID=sessionId)})
+    try:
+        name = kernel.getPredicate(name="name",sessionID=sessionId)
+        print name
+    except KeyError:pass
+    try:
+        age = kernel.getPredicate(name="age", sessionID=sessionId)
+    except KeyError:pass
+    try:
+        car = kernel.getPredicate(name="car", sessionID=sessionId)
+    except KeyError:pass
+    try:
+        driveyear = kernel.getPredicate(name="driveyear", sessionID=sessionId)
+    except KeyError:pass
+    data = jsonify({"name":name},{"age":age},{"car":car},{"driveyear":driveyear})
     return data
 
 if __name__ == "__main__":
