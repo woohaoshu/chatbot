@@ -2,6 +2,26 @@
 
 <aiml version="1.0">
 
+    <category>
+        <pattern>你好</pattern>
+        <template>
+            <srai>INACTIVITY QUESTIONS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>hello</pattern>
+        <template>
+            <srai>INACTIVITY QUESTIONS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>hi</pattern>
+        <template>
+            <srai>INACTIVITY QUESTIONS</srai>
+        </template>
+    </category>
 
     <category>
         <pattern>*</pattern>
@@ -10,16 +30,10 @@
         </template>
     </category>
 
-
     <category>
         <pattern>INACTIVITY QUESTIONS</pattern>
         <template>
-            <condition>
-                <li name="name" value="">请等一下，还不知如何称呼您？</li>
-                <li>
-                    <srai>ASK USER A QUESTION</srai>
-                </li>
-            </condition>
+            <srai>ASK USER A QUESTION</srai>
         </template>
     </category>
 
@@ -79,7 +93,21 @@
     </category>
 
     <category>
+        <pattern>我是谁</pattern>
+        <template>
+            <srai>WHO AM I</srai>
+        </template>
+    </category>
+
+    <category>
         <pattern>我叫什么</pattern>
+        <template>
+            <srai>WHO AM I</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO AM I</pattern>
         <template>
             <random>
                 <li>你叫

@@ -2,7 +2,31 @@
 
 <aiml version="1.0">
 
-<category>
+    <category>
+        <pattern>ASK USER A QUESTION</pattern>
+        <template>
+            <condition>
+                <li name="name" value="">请等一下，还不知如何称呼您？</li>
+                <li name="age" value="">请等一下，还不知您贵庚？</li>
+                <li name="car" value="">那么您开的什么车呀？</li>
+                <li name="driveyear" value="">不知您车龄多少啊？</li>
+                <li>请问我能帮到您什么~</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>请问*</pattern>
+        <that>请问我能帮到您什么~</that>
+        <template>
+            <random>
+                <li>不好意思呀，这个问题我还没想好(⊙ ▽ ⊙)</li>
+                <li>emmmm,让我回去查查资料</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
         <pattern>*谢谢*</pattern>
         <template>
             <srai>ASK AGE</srai>
@@ -13,16 +37,73 @@
         <pattern>ASK AGE</pattern>
         <template>
             <condition>
-                <li name="age" value="">请等一下，还不知您贵庚？</li>
-                <li>
+                <if name="age" value="">请等一下，还不知您贵庚？
+                    <else/>
                     <srai>ASK CAR</srai>
-                </li>
+                </if>
             </condition>
         </template>
     </category>
 
     <category>
         <pattern>我今年 * 岁</pattern>
+        <template>
+            <think>
+                <set name="age">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY AGE</srai>
+        </template>
+    </category>
+
+
+    <category>
+        <pattern>我今年 * </pattern>
+        <template>
+            <think>
+                <set name="age">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY AGE</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我 * 岁</pattern>
+        <template>
+            <think>
+                <set name="age">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY AGE</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern> * 岁</pattern>
+        <template>
+            <think>
+                <set name="age">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY AGE</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern> * </pattern>
         <that>请等一下，还不知您贵庚？</that>
         <template>
             <think>
@@ -45,22 +126,55 @@
                 <li>
                     <get name="age" />哦，正值大好时光！</li>
             </random>
-            <srai>ASK CAR</srai>
+            <condition name="car" value="">
+                <srai>ASK CAR</srai>
+            </condition>
         </template>
     </category>
 
     <category>
         <pattern>ASK CAR</pattern>
         <template>
-            <condition>
-                <li name="car" value="">请等一下，还不知您的车型？</li>
-            </condition>
+            <if name="car" value="">那么您开的什么车呀？
+                <else/>
+                <srai>ASK DRIVE YEAR</srai>
+            </if>
         </template>
     </category>
 
     <category>
         <pattern>我开 * </pattern>
-        <that>请等一下，还不知您的车型？</that>
+        <that>那么您开的什么车呀？</that>
+        <template>
+            <think>
+                <set name="car">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY CAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我开的 * </pattern>
+        <that>那么您开的什么车呀？</that>
+        <template>
+            <think>
+                <set name="car">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY CAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern> * </pattern>
+        <that>那么您开的什么车呀？</that>
         <template>
             <think>
                 <set name="car">
@@ -82,6 +196,107 @@
                 <li>
                     <get name="car" />，不错呦~</li>
             </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ASK DRIVE YEAR</pattern>
+        <template>
+            <condition name="driveyear" value="">不知您车龄多少啊？</condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ASK DRIVE YEAR2</pattern>
+        <template>
+            车龄不能大于年龄呀，老实告诉我，你车龄到底多少→_→
+        </template>
+    </category>
+
+    <category>
+        <pattern>我开了 * 年了</pattern>
+        <template>
+            <think>
+                <set name="driveyear">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY DRIVE YEAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern> * </pattern>
+        <that>不知您车龄多少啊？</that>
+        <template>
+            <think>
+                <set name="driveyear">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY DRIVE YEAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern> * </pattern>
+        <that>车龄不能大于年龄呀，老实告诉我，你车龄到底多少→_→</that>
+        <template>
+            <think>
+                <set name="driveyear">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY DRIVE YEAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>我开了 * 年了</pattern>
+        <that>车龄不能大于年龄呀，老实告诉我，你车龄到底多少→_→</that>
+        <template>
+            <think>
+                <set name="driveyear">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY DRIVE YEAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern> * 年 </pattern>
+        <that>车龄不能大于年龄呀，老实告诉我，你车龄到底多少→_→</that>
+        <template>
+            <think>
+                <set name="driveyear">
+                    <formal>
+                        <star/>
+                    </formal>
+                </set>
+            </think>
+            <srai>REPLY DRIVE YEAR</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>REPLY DRIVE YEAR</pattern>
+        <template>
+            <random>
+                <li>好的，
+                    <get name="driveyear" />年，我记下啦.</li>
+                <li>
+                    <get name="driveyear" />年，老司机啦→_→</li>
+            </random>
+            <srai>ASK USER A QUESTION</srai>
         </template>
     </category>
 
